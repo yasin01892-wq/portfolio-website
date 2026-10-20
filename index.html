@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasin Arafat · AI Content Creator</title>
+<meta name="description" content="Portfolio of Yasin Arafat, an AI Content Creator making AI-generated images, videos and digital content.">
+<meta name="theme-color" content="#F6F7F9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --ink:#0E1525; --muted:#566074; --line:#E1E4EA;
+  --accent:#3A40D8; --accent-ink:#FFFFFF; --soft:#E9EAFB;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --max:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0D1018;--surface:#151A25;--ink:#EEF0F6;--muted:#A0A8BA;--line:#252C3B;--accent:#8C93FF;--accent-ink:#0D1018;--soft:#1C2140;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0D1018;--surface:#151A25;--ink:#EEF0F6;--muted:#A0A8BA;--line:#252C3B;--accent:#8C93FF;--accent-ink:#0D1018;--soft:#1C2140;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:56ch}
+section{padding:96px 0}
+.sec-head{margin-bottom:44px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.1rem var(--display);text-decoration:none;letter-spacing:-.01em}
+.links{display:flex;gap:28px;list-style:none;padding:0;align-items:center}
+.links a{text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500;transition:color .2s}
+.links a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 12px;font:500 .9rem var(--body);cursor:pointer}
+.theme-btn{background:none;border:1px solid var(--line);color:var(--ink);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem}
+
+/* buttons */
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;font-family:var(--body);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+
+/* hero */
+.hero{padding:88px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);margin-bottom:20px}
+.role{font:600 1.15rem var(--display);color:var(--accent);margin-bottom:14px}
+.hero p.lead{margin-bottom:30px;font-size:1.12rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.prompt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 24px 50px -30px rgba(14,21,37,.35)}
+.prompt-top{display:flex;gap:6px;margin-bottom:18px}
+.prompt-top i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.prompt-label{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.prompt-text{font:500 1.05rem/1.5 var(--body);min-height:3.2em}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+.canvas{margin-top:18px;aspect-ratio:16/10;border-radius:10px;background:linear-gradient(120deg,var(--soft),var(--bg),var(--soft));background-size:200% 100%;animation:shimmer 4s ease-in-out infinite;display:grid;place-items:center;color:var(--muted);font-size:.9rem}
+@keyframes blink{50%{opacity:0}}
+@keyframes shimmer{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+.fact-row{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap}
+.fact b{display:block;font:700 1.5rem var(--display)}
+.fact span{color:var(--muted);font-size:.92rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px}
+.about-text p+p{margin-top:16px}
+.about-text p{color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.skill .ic{font-size:1.3rem;margin-bottom:12px;color:var(--accent)}
+.skill h3{font-size:1.05rem;letter-spacing:-.01em;margin-bottom:6px}
+.skill p{color:var(--muted);font-size:.92rem;line-height:1.5}
+
+/* projects */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 16px;border-radius:999px;font:500 .9rem var(--body);cursor:pointer;transition:all .2s}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:16/10;position:relative;display:grid;place-items:center;overflow:hidden}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}
+.thumb .kind{font:600 1.1rem var(--display);color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+.tag{position:absolute;top:12px;left:12px;background:rgba(14,21,37,.78);color:#fff;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px}
+.card-body{padding:20px 22px 24px}
+.card-body small{color:var(--accent);font-weight:600}
+.card-body h3{font-size:1.2rem;margin:4px 0 8px;letter-spacing:-.01em}
+.card-body p{color:var(--muted);font-size:.95rem;line-height:1.55}
+.card.hide{display:none}
+.note{margin-top:24px;color:var(--muted);font-size:.92rem;border-left:3px solid var(--accent);padding-left:14px;max-width:70ch}
+
+/* tools */
+.tools{display:flex;flex-wrap:wrap;gap:14px}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 24px;font:600 1.05rem var(--display);transition:border-color .2s}
+.tool:hover{border-color:var(--accent)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
+.contact-list{list-style:none;padding:0;margin-top:26px;display:grid;gap:14px}
+.contact-list a{font-weight:600;text-decoration-color:var(--line);text-underline-offset:4px}
+.contact-list span{display:block;color:var(--muted);font-size:.88rem}
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:16px}
+label{font-weight:500;font-size:.92rem;display:grid;gap:6px}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+.form-note{color:var(--muted);font-size:.85rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:36px 0}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:.92rem;align-items:center}
+.foot ul{display:flex;gap:20px;list-style:none;padding:0;flex-wrap:wrap}
+.foot a{text-decoration:none}.foot a:hover{color:var(--ink)}
+
+/* load + scroll reveal (one gentle effect, only where marked) */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.hero .reveal{transition-delay:.08s}
+
+@media (max-width:900px){
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+}
+@media (max-width:720px){
+  section{padding:68px 0}
+  .menu-btn{display:block}
+  .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 16px;display:none}
+  .links.open{display:flex}
+  .links li{width:100%}.links a{display:block;padding:12px 0}
+  .grid{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Yasin Arafat</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="theme-btn" id="themeBtn" aria-label="Toggle light and dark theme">◐</button></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <p class="role">AI Content Creator</p>
+      <h1>I turn ideas into images, videos and stories with AI.</h1>
+      <p class="lead">I’m Yasin Arafat. I create AI-generated images, videos and digital content for social media, product ads and education.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">View projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="fact-row">
+        <div class="fact"><b>1 year</b><span>of hands-on experience</span></div>
+        <div class="fact"><b>8</b><span>content skills</span></div>
+        <div class="fact"><b>5</b><span>everyday tools</span></div>
+      </div>
+    </div>
+    <div class="prompt reveal" aria-hidden="true">
+      <div class="prompt-top"><i></i><i></i><i></i></div>
+      <div class="prompt-label">Prompt</div>
+      <div class="prompt-text"><span id="typed"></span><span class="caret"></span></div>
+      <div class="canvas">Generating…</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="sec-head reveal"><h2>About me</h2></div>
+    <div class="about-text reveal">
+      <p>I am an AI Content Creator with hands-on experience in creating AI-generated images, videos, and digital content.</p>
+      <p>I have been working in this field for one year. I use AI tools for writing, image and video generation, and editing, then shape the results into clear content that fits the platform and the audience.</p>
+      <p>I work on social media content, product advertisements, educational videos, graphic design and AI music and voice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Skills</h2><p class="lead">What I can create for you.</p></div>
+    <div class="skills reveal" id="skillGrid"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Projects</h2><p class="lead">A selection of the kind of work I create.</p></div>
+    <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+    <div class="grid" id="projectGrid"></div>
+    <p class="note">The cards marked “Placeholder” are sample layouts, not real projects. Real work will replace them as it is added.</p>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Tools I use</h2><p class="lead">The tools behind my daily workflow.</p></div>
+    <div class="tools reveal">
+      <div class="tool">ChatGPT</div><div class="tool">Claude</div><div class="tool">Google Gemini</div><div class="tool">Canva</div><div class="tool">CapCut</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <h2>Let’s work together</h2>
+      <p class="lead">Have a project in mind? Send a message and I’ll reply by email.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:yasin01892@gmail.com">yasin01892@gmail.com</a></li>
+        <li><span>Facebook</span><a href="https://www.facebook.com/share/1GSFK9Gjjr/" target="_blank" rel="noopener noreferrer">Visit my Facebook profile</a></li>
+      </ul>
+    </div>
+    <form id="form" class="reveal">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+      <label>Message<textarea name="message" required></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <p class="form-note">This opens your email app with the message ready to send.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year"></span> Yasin Arafat. All rights reserved.</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="mailto:yasin01892@gmail.com">Email</a></li>
+      <li><a href="https://www.facebook.com/share/1GSFK9Gjjr/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+/* ===== EDIT YOUR CONTENT HERE ===== */
+const skills = [
+  ["✦","AI Image Generation","Original images from text prompts."],
+  ["▶","AI Video Generation","Short clips and motion from AI tools."],
+  ["✎","AI Content Creation","Scripts, captions and copy."],
+  ["◎","Social Media Content","Posts and short videos for each platform."],
+  ["◆","Product Advertisement","Ad visuals and videos for products."],
+  ["▣","Graphic Design","Layouts, banners and thumbnails."],
+  ["♪","AI Music & Voice","AI voiceovers and background music."],
+  ["❖","Educational Videos","Clear, step-by-step learning videos."]
+];
+
+/* To show real work: set `img` (e.g. "images/ad.jpg") or `video` (e.g. "videos/clip.mp4"),
+   set placeholder:false, and update title/desc. */
+const projects = [
+  {cat:"Video",  title:"AI-Generated Videos",  desc:"Short AI-generated video work.", placeholder:true, color:["#3A40D8","#7B5CF0"]},
+  {cat:"Images", title:"Product Images",       desc:"AI-generated product visuals.", placeholder:true, color:["#0E7C86","#3AB8A6"]},
+  {cat:"Education", title:"Educational Videos",desc:"Simple explainer-style lessons.", placeholder:true, color:["#B2475D","#E58A6B"]},
+  {cat:"Social", title:"Social Media Content", desc:"Posts and reels for social platforms.", placeholder:true, color:["#2E5AAC","#5C93E0"]}
+];
+/* ================================== */
+
+const $ = s => document.querySelector(s);
+
+// Skills
+$("#skillGrid").innerHTML = skills.map(s =>
+  `<div class="skill"><div class="ic" aria-hidden="true">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("");
+
+// Projects + filters
+const cats = ["All", ...new Set(projects.map(p => p.cat))];
+$("#filters").innerHTML = cats.map((c,i) => `<button class="chip" aria-pressed="${i===0}" data-cat="${c}">${c}</button>`).join("");
+$("#projectGrid").innerHTML = projects.map(p => {
+  let media = `<span class="kind">${p.cat}</span>`;
+  if (p.img) media = `<img src="${p.img}" alt="${p.title}" loading="lazy">`;
+  if (p.video) media = `<video src="${p.video}" controls preload="metadata"></video>`;
+  const bg = p.img || p.video ? "" : `style="background:linear-gradient(135deg,${p.color[0]},${p.color[1]})"`;
+  return `<article class="card reveal" data-cat="${p.cat}">
+    <div class="thumb" ${bg}>${p.placeholder ? '<span class="tag">Placeholder</span>' : ""}${media}</div>
+    <div class="card-body"><small>${p.cat}</small><h3>${p.title}</h3><p>${p.desc}</p></div></article>`;
+}).join("");
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+  document.querySelectorAll(".card").forEach(c => c.classList.toggle("hide", b.dataset.cat !== "All" && c.dataset.cat !== b.dataset.cat));
+});
+
+// Hero typing prompt (one looping moment)
+const lines = ["A product photo on a clean studio background","A 30-second explainer video about healthy habits","A social media post series for a small brand","A calm background track with a friendly voiceover"];
+const typed = $("#typed"); let li = 0, ci = 0, del = false;
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function tick(){
+  const t = lines[li];
+  if (still){ typed.textContent = t; return; }
+  typed.textContent = t.slice(0, ci);
+  if (!del && ci++ === t.length){ del = true; return setTimeout(tick, 1600); }
+  if (del && --ci === 0){ del = false; li = (li+1) % lines.length; }
+  setTimeout(tick, del ? 22 : 45);
+}
+tick();
+
+// Scroll reveal
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// Mobile menu
+const menuBtn = $("#menuBtn"), links = $("#links");
+menuBtn.addEventListener("click", () => menuBtn.setAttribute("aria-expanded", links.classList.toggle("open")));
+links.addEventListener("click", e => { if (e.target.tagName === "A"){ links.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); } });
+
+// Theme toggle
+$("#themeBtn").addEventListener("click", () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+});
+
+// Contact form -> opens email app
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const body = `${f.get("message")}\n\nFrom: ${f.get("name")} (${f.get("email")})`;
+  location.href = `mailto:yasin01892@gmail.com?subject=${encodeURIComponent("Portfolio message from " + f.get("name"))}&body=${encodeURIComponent(body)}`;
+});
+
+$("#year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
